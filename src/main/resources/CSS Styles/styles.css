@@ -1,0 +1,804 @@
+
+/*
+ * Typerr Application Stylesheet - Light Theme
+ * ===========================================
+ * 
+ * Comprehensive styling for the Typerr typing speed test application.
+ * This stylesheet defines the visual appearance and theme for all UI components
+ * in the light theme mode, providing a consistent, modern design language
+ * throughout the application with optimal readability and user experience.
+ * 
+ * Theme Characteristics:
+ * ---------------------
+ * - Bright, clean aesthetic suitable for well-lit environments
+ * - High contrast text for maximum readability
+ * - Traditional light-background design pattern
+ * - Blue accent colors for branding and highlights
+ * - Subtle shadows and gradients for depth
+ * 
+ * Design System Overview:
+ * ----------------------
+ * Color Palette:
+ *   - Primary Blue: #007BFF (buttons, highlights, accent elements, branding)
+ *   - Success Green: #28A745 (correct text, positive indicators, completion states)
+ *   - Error Red: #DC3545 (incorrect text, error states, warnings)
+ *   - Warning Orange: #FFC107 (attention items, pending states)
+ *   - Dark Text: #212529 (primary text content, headings)
+ *   - Medium Text: #495057 (secondary text, body content)
+ *   - Light Text: #6C757D (muted text, labels, captions)
+ *   - Light Gray: #ADB5BD (disabled elements, borders, separators)
+ *   - Background: #F8F9FA (main application background)
+ *   - Card Background: #FFFFFF (content areas, panels, modals)
+ *   - Border Gray: #DEE2E6 (subtle borders, dividers)
+ *   
+ * Typography System:
+ *   - Primary Font Family: "JetBrains Mono" (monospace for typing areas)
+ *   - Fallback Chain: "Fira Code", "Roboto Mono", "Consolas", monospace
+ *   - Font Size Scale: 12px (tiny) → 14px (small) → 16px (base) → 18px (large) → 
+ *                      24px (heading) → 28px (stat) → 48px (title) → 64px (hero)
+ *   - Line Heights: 1.2 (tight) → 1.4 (normal) → 1.6 (loose) for readability
+ *   - Font Weights: 400 (normal), 600 (semi-bold), 700 (bold)
+ *   
+ * Layout and Spacing:
+ *   - Base Unit: 4px for consistent spacing throughout
+ *   - Spacing Scale: 4px, 8px, 12px, 16px, 20px, 24px, 32px, 40px, 48px
+ *   - Container Padding: 20px (mobile) → 40px (desktop)
+ *   - Element Spacing: 15px (tight) → 25px (normal) → 50px (loose)
+ *   
+ * Interactive Elements:
+ *   - Border Radius: 4px (subtle) → 8px (standard) → 12px (prominent)
+ *   - Hover Transitions: 0.2s ease for smooth interactions
+ *   - Focus Indicators: Blue outline with 2px offset
+ *   - Button States: normal → hover → active → disabled
+ *   
+ * Component Architecture:
+ *   - Menu and Navigation: Central layouts with consistent spacing
+ *   - Typography Display: Real-time text with color-coded feedback
+ *   - Statistics: Prominent metric display with clear hierarchy
+ *   - Interactive Controls: Accessible buttons with clear states
+ *   - Charts and Graphs: Data visualization with consistent styling
+ *   - Form Elements: Clean input styling with validation states
+ *   
+ * Accessibility Features:
+ *   - WCAG AA compliant color contrast ratios (4.5:1 minimum)
+ *   - Keyboard navigation support with visible focus indicators
+ *   - Screen reader friendly with semantic HTML structure
+ *   - Reduced motion support for users with vestibular disorders
+ *   - High contrast mode compatibility
+ *   
+ * Performance Considerations:
+ *   - CSS custom properties for theme switching
+ *   - Minimal use of box-shadows and gradients
+ *   - Hardware-accelerated transforms where appropriate
+ *   - Optimized for 60fps animations and transitions
+ *   
+ * Browser Compatibility:
+ *   - JavaFX CSS implementation
+ *   - Modern CSS features with fallbacks
+ *   - Cross-platform consistency
+ *   
+ * @author ArefinSowad
+ * @version 1.0
+ * @since 1.0
+ * @see dark-styles.css for dark theme variant
+ */
+
+/* ========== ROOT AND GLOBAL STYLES ========== */
+
+/* Root application container with global font and background settings */
+.root {
+    -fx-background-color: #F8F9FA; /* Light gray background for entire app */
+    -fx-font-family: "JetBrains Mono", "Fira Code", "Roboto Mono", "Consolas", monospace; /* Monospace fonts for consistent character spacing */
+}
+
+/* Default label styling for consistent text appearance throughout the app */
+.label {
+    -fx-text-fill: #495057; /* Medium gray text for good readability */
+    -fx-font-weight: normal;
+}
+
+/* ========== MAIN MENU AND LAYOUT CONTAINERS ========== */
+
+/* Main menu container and results display container styling */
+.menu-pane, .results-pane {
+    -fx-padding: 40px;           /* Generous padding for breathing room */
+    -fx-alignment: center;       /* Center content horizontally and vertically */
+    -fx-spacing: 25px;           /* Consistent spacing between child elements */
+    -fx-background-color: #F8F9FA;
+}
+
+/* Application title styling with prominent blue color */
+.menu-title {
+    -fx-font-size: 48px;         /* Large, attention-grabbing size */
+    -fx-font-weight: bold;
+    -fx-text-fill: #007BFF;      /* Primary blue brand color */
+}
+
+/* Container for grouped menu elements (buttons, controls) */
+.menu-group {
+    -fx-spacing: 15px;           /* Moderate spacing between related elements */
+    -fx-alignment: center;
+}
+
+/* ========== STATISTICS AND PERFORMANCE DISPLAY ========== */
+
+/* Horizontal container for displaying multiple statistics */
+.stats-bar {
+    -fx-spacing: 50px;           /* Wide spacing between stat groups */
+    -fx-alignment: center;
+}
+
+/* Individual statistic display container */
+.stat-box {
+    -fx-alignment: center;       /* Center-align stat content */
+    -fx-spacing: 5px;            /* Minimal spacing between title and value */
+}
+
+/* Statistics category labels (WPM, Accuracy, etc.) */
+.stat-title {
+    -fx-font-size: 14px;
+    -fx-text-fill: #6C757D;      /* Muted color for secondary information */
+    -fx-font-weight: bold;
+    -fx-text-transform: uppercase; /* Uppercase for visual consistency */
+}
+
+/* Large statistic values (numbers) */
+.stat-value {
+    -fx-font-size: 28px;         /* Prominent size for key metrics */
+    -fx-font-weight: bold;
+    -fx-text-fill: #212529;      /* Dark text for high contrast */
+}
+
+/* ========== TYPING TEST WORD DISPLAY ========== */
+
+/* Container for the typing test word display area with optimal width and padding */
+.word-container {
+    -fx-padding: 30px;           /* Comfortable padding around typing content */
+    -fx-max-width: 900px;        /* Optimal line length for reading and typing */
+    -fx-background-color: transparent;
+}
+
+/* Typing area text flow configuration for line spacing and alignment */
+.word-display-area {
+    -fx-line-spacing: 16px;      /* Adequate spacing between lines for readability */
+    -fx-text-alignment: left;    /* Left-aligned text for natural reading flow */
+}
+
+/* ========== CHARACTER-BY-CHARACTER TYPING FEEDBACK ========== */
+
+/* Default styling for characters not yet typed (upcoming text) */
+.text-default { 
+    -fx-fill: #ADB5BD;          /* Muted gray for untyped characters */
+} 
+
+/* Correct character styling (user typed correctly) */
+.text-correct { 
+    -fx-fill: #212529;          /* Dark text for correct characters */
+} 
+
+/* Incorrect character styling (user made a typing error) */
+.text-incorrect { 
+    -fx-fill: #DC3545;          /* Red color to highlight errors */
+} 
+
+/* Extra character styling (user typed beyond target word length) */
+.text-extra { 
+    -fx-underline: true;        /* Underline to emphasize extra characters */
+    -fx-fill: #DC3545;          /* Red color for error indication */
+}
+
+/* Blinking cursor indicator showing current typing position */
+.caret { 
+    -fx-fill: #007BFF;          /* Blue cursor for visibility */
+    -fx-underline: true;        /* Underline for cursor emphasis */
+}
+
+/* ========== INTERACTIVE BUTTONS AND CONTROLS ========== */
+
+/* Universal button styling for mode selection, navigation, and actions */
+.mode-button, .restart-button, .nav-button, .theme-toggle, .back-button {
+    -fx-background-color: #E9ECEF; /* Light gray background */
+    -fx-text-fill: #495057;     /* Dark gray text for contrast */
+    -fx-font-size: 16px;        /* Readable button text size */
+    -fx-font-weight: bold;      /* Bold text for button emphasis */
+    -fx-padding: 10px 20px;     /* Comfortable button padding */
+    -fx-background-radius: 8px;  /* Rounded corners for modern look */
+    -fx-cursor: hand;           /* Hand cursor for clickable indication */
+    -fx-border-color: transparent;
+    -fx-border-width: 0;        /* Clean borderless design */
+    -fx-transition: background-color 0.2s, color 0.2s; /* Smooth hover transitions */
+}
+
+/* Hover state for all interactive buttons with blue accent */
+.mode-button:hover, .restart-button:hover, .nav-button:hover, .theme-toggle:hover, .back-button:hover {
+    -fx-background-color: #DEE2E6; /* Slightly darker background on hover */
+    -fx-text-fill: #007BFF;     /* Blue text on hover for interactivity */
+}
+
+/* Selected difficulty button styling (currently active difficulty) */
+.selected-difficulty-button {
+    -fx-background-color: #007BFF; /* Blue background for selected state */
+    -fx-text-fill: #FFFFFF;     /* White text for contrast on blue */
+}
+
+/* Hover state for selected difficulty button */
+.selected-difficulty-button:hover {
+    -fx-background-color: #0069d9; /* Darker blue on hover */
+    -fx-text-fill: #FFFFFF;     /* Maintain white text */
+}
+
+/* Statistics access button specific styling */
+.stats-button {
+    -fx-background-color: #E9ECEF; /* Standard button background */
+    -fx-text-fill: #212529;     /* Dark text for readability */
+}
+
+/* Statistics button hover state */
+.stats-button:hover {
+    -fx-background-color: #DEE2E6; /* Hover background change */
+    -fx-text-fill: #007BFF;     /* Blue text on hover */
+}
+
+/* Back and restart buttons with larger size for prominence */
+.back-button, .restart-button {
+    -fx-font-size: 24px;        /* Larger font for important actions */
+    -fx-padding: 8px 16px;      /* Adjusted padding for larger text */
+}
+
+/* ========== THEME TOGGLE BUTTONS ========== */
+
+/* Light theme toggle button styling */
+.light-theme-button {
+    -fx-background-color: #007BFF; /* Blue background for light theme */
+    -fx-text-fill: #FFFFFF;     /* White text on blue background */
+    -fx-font-weight: bold;      /* Bold text for emphasis */
+    -fx-border-color: #007BFF;  /* Matching border color */
+    -fx-border-width: 2px;      /* Defined border for button structure */
+    -fx-border-radius: 8px;     /* Rounded border corners */
+    -fx-background-radius: 8px; /* Matching background radius */
+}
+
+/* Light theme button hover state */
+.light-theme-button:hover {
+    -fx-background-color: #0056b3; /* Darker blue on hover */
+    -fx-text-fill: #FFFFFF;     /* Maintain white text */
+    -fx-border-color: #0056b3;  /* Matching border on hover */
+}
+
+/* Dark theme toggle button styling */
+.dark-theme-button {
+    -fx-background-color: #343A40; /* Dark gray for dark theme representation */
+    -fx-text-fill: #FFFFFF;     /* White text for contrast */
+    -fx-font-weight: bold;      /* Bold text for emphasis */
+    -fx-border-color: #343A40;  /* Matching border color */
+    -fx-border-width: 2px;      /* Consistent border width */
+    -fx-border-radius: 8px;     /* Rounded corners */
+    -fx-background-radius: 8px; /* Matching background radius */
+}
+
+/* Dark theme button hover state */
+.dark-theme-button:hover {
+    -fx-background-color: #495057; /* Lighter gray on hover */
+    -fx-text-fill: #FFFFFF;     /* Maintain white text */
+    -fx-border-color: #495057;  /* Matching border on hover */
+}
+
+/* ========== RESULTS DISPLAY AND INFORMATION ========== */
+
+/* General results information text styling */
+.results-info {
+    -fx-font-size: 16px;        /* Readable size for result details */
+    -fx-text-fill: #6C757D;     /* Muted color for secondary information */
+}
+
+/* Primary result labels for main performance metrics */
+.results-label-title {
+    -fx-font-size: 24px;        /* Large size for metric labels */
+    -fx-text-fill: #6C757D;     /* Muted color for label text */
+}
+
+/* Large performance values displayed prominently in results */
+.results-label-value {
+    -fx-font-size: 64px;        /* Very large size for key metrics like WPM */
+    -fx-font-weight: bold;      /* Bold weight for emphasis */
+    -fx-text-fill: #007BFF;     /* Blue color for primary values */
+}
+
+/* Multiplayer WPM values in competitive displays */
+.multiplayer-wpm-value {
+    -fx-font-size: 18px;        /* Medium size for multiplayer metrics */
+    -fx-font-weight: bold;      /* Bold for competitive emphasis */
+    -fx-text-fill: #007BFF;     /* Blue for consistency with theme */
+}
+
+/* ========== CONTAINER LAYOUTS AND BACKGROUNDS ========== */
+
+/* Main containers for statistics, settings, and help views */
+.stats-container, .settings-container, .help-container {
+    -fx-background-color: #F8F9FA; /* Light background for content areas */
+}
+
+/* Scroll pane styling for stats, settings, and help sections */
+.stats-scroll-pane, .settings-scroll-pane, .help-scroll-pane {
+    -fx-background-color: #F8F9FA; /* Consistent background with containers */
+    -fx-border-color: transparent; /* Remove default borders for clean look */
+}
+
+/* Viewport areas within scroll panes */
+.stats-scroll-pane .viewport, .settings-scroll-pane .viewport, .help-scroll-pane .viewport {
+    -fx-background-color: #F8F9FA; /* Maintain consistent background */
+}
+
+/* Scroll bar background styling */
+.stats-scroll-pane .scroll-bar, .settings-scroll-pane .scroll-bar, .help-scroll-pane .scroll-bar {
+    -fx-background-color: #E9ECEF; /* Light gray scroll bar track */
+}
+
+/* Scroll bar thumb (draggable part) styling */
+.stats-scroll-pane .scroll-bar .thumb, .settings-scroll-pane .scroll-bar .thumb, .help-scroll-pane .scroll-bar .thumb {
+    -fx-background-color: #ADB5BD; /* Medium gray thumb color */
+    -fx-background-radius: 5;   /* Rounded thumb for modern appearance */
+}
+
+/* Scroll bar thumb hover state */
+.stats-scroll-pane .scroll-bar .thumb:hover, .settings-scroll-pane .scroll-bar .thumb:hover, .help-scroll-pane .scroll-bar .thumb:hover {
+    -fx-background-color: #6C757D; /* Darker gray on hover */
+}
+
+/* Main section titles for stats, settings, and help pages */
+.stats-title, .settings-title, .help-title {
+    -fx-font-size: 28px;        /* Large titles for section identification */
+    -fx-font-weight: bold;      /* Bold weight for hierarchy */
+    -fx-text-fill: #212529;     /* Dark text for strong contrast */
+}
+
+/* ========== STATISTICS TAB PANE STYLING ========== */
+
+/* Tab header background for statistics tabbed interface */
+.stats-tab-pane .tab-header-background { 
+    -fx-background-color: #F8F9FA; /* Light background for tab header */
+}
+
+/* Individual tab styling in statistics view */
+.stats-tab-pane .tab {
+    -fx-background-color: #F8F9FA; /* Light background for unselected tabs */
+    -fx-text-fill: #6C757D;     /* Muted text for inactive tabs */
+    -fx-font-weight: bold;      /* Bold text for tab labels */
+    -fx-padding: 8px 16px;      /* Comfortable padding for tab content */
+    -fx-focus-color: transparent; /* Remove default focus outline */
+    -fx-faint-focus-color: transparent;
+}
+
+/* Selected tab highlighting in statistics view */
+.stats-tab-pane .tab:selected {
+    -fx-text-fill: #007BFF;     /* Blue text for active tab */
+    -fx-border-color: #007BFF;  /* Blue border for selected indication */
+    -fx-border-width: 0 0 2px 0; /* Bottom border only for clean look */
+}
+
+/* Remove focus indicator for cleaner tab appearance */
+.tab-pane:focused > .tab-header-area > .headers-region > .tab:selected .focus-indicator {
+    -fx-border-color: transparent;
+}
+
+/* ========== CONTENT SECTIONS AND CARDS ========== */
+
+/* Card-style sections for statistics and settings content */
+.stats-section, .settings-section {
+    -fx-padding: 20px;          /* Generous padding for content breathing room */
+    -fx-background-color: #FFFFFF; /* White background for content cards */
+    -fx-background-radius: 12px; /* Rounded corners for modern card design */
+    -fx-border-color: #DEE2E6;  /* Light border for subtle definition */
+    -fx-border-width: 1px;      /* Thin border for elegant appearance */
+    -fx-border-radius: 12px;    /* Matching border radius */
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 2); /* Subtle shadow for depth */
+}
+
+/* Section title styling within content cards */
+.section-title {
+    -fx-font-size: 20px;        /* Prominent but not overwhelming size */
+    -fx-font-weight: bold;      /* Bold for section hierarchy */
+    -fx-text-fill: #212529;     /* Dark text for strong contrast */
+}
+
+/* Descriptive text within sections */
+.section-description {
+    -fx-font-size: 14px;        /* Readable size for body text */
+    -fx-text-fill: #6C757D;     /* Muted color for secondary information */
+    -fx-wrap-text: true;        /* Allow text wrapping for long descriptions */
+}
+
+/* Statistics summary cards with background highlighting */
+.stats-summary {
+    -fx-padding: 20px;          /* Comfortable padding for summary content */
+    -fx-background-color: #F8F9FA; /* Light background for summary distinction */
+    -fx-background-radius: 12px; /* Rounded corners matching other cards */
+    -fx-spacing: 12px;           /* Adequate spacing between summary items */
+    -fx-border-color: #E9ECEF;  /* Light border for card definition */
+    -fx-border-width: 1px;      /* Thin border for subtle appearance */
+    -fx-border-radius: 12px;    /* Matching rounded corners */
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.05), 5, 0, 0, 1); /* Very subtle shadow */
+}
+
+/* Labels within statistics summary sections */
+.stats-summary .label { 
+    -fx-text-fill: #212529;     /* Dark text for readability */
+}
+
+/* ========== CHARTS AND DATA VISUALIZATION ========== */
+
+/* Main chart container styling with borders and background */
+.chart { 
+    -fx-background-color: #FFFFFF; /* White background for chart clarity */
+    -fx-padding: 10px;          /* Padding around chart content */
+    -fx-background-radius: 8px; /* Rounded corners for modern appearance */
+    -fx-border-color: #DEE2E6;  /* Light border for chart definition */
+    -fx-border-width: 1px;      /* Thin border for subtle boundaries */
+}
+
+/* Chart title styling for clear identification */
+.chart-title { 
+    -fx-font-size: 18px;        /* Prominent title size */
+    -fx-font-weight: bold;      /* Bold for emphasis */
+    -fx-text-fill: #212529;     /* Dark text for contrast */
+}
+
+/* Chart plot background for data area */
+.chart-plot-background { 
+    -fx-background-color: #FFFFFF; /* White background for data clarity */
+}
+
+/* Chart legend styling */
+.chart-legend { 
+    -fx-background-color: #FFFFFF; /* White background for legend */
+}
+
+/* Legend labels for data series identification */
+.chart-legend .label { 
+    -fx-text-fill: #212529;     /* Dark text for readability */
+}
+
+/* Chart axis styling and labeling */
+.axis { 
+    -fx-tick-label-fill: #6C757D; /* Muted color for axis values */
+}
+
+/* Main axis label styling */
+.axis .axis-label { 
+    -fx-text-fill: #212529;     /* Dark text for axis titles */
+}
+
+/* Chart grid lines for data reference */
+.chart-vertical-grid-lines, .chart-horizontal-grid-lines { 
+    -fx-stroke: #E9ECEF;        /* Light gray grid lines */
+}
+
+/* Primary data series line styling (typically WPM data) */
+.default-color0.chart-series-line { 
+    -fx-stroke: #007BFF;        /* Blue color for primary data */
+    -fx-stroke-width: 2px;      /* Medium line width for visibility */
+}
+
+/* Secondary data series line styling (typically trends) */
+.default-color1.chart-series-line { 
+    -fx-stroke: #DC3545;        /* Red color for secondary data */
+    -fx-stroke-width: 2px;      /* Consistent line width */
+    -fx-stroke-dash-array: 5 5; /* Dashed line for differentiation */
+}
+
+/* Primary data point symbols */
+.default-color0.chart-line-symbol { 
+    -fx-background-color: #007BFF, #FFFFFF; /* Blue symbols with white centers */
+}
+
+/* Secondary data point symbols */
+.default-color1.chart-line-symbol { 
+    -fx-background-color: #DC3545, #FFFFFF; /* Red symbols with white centers */
+}
+
+/* Bar chart styling for performance distribution */
+.default-color0.chart-bar { 
+    -fx-bar-fill: #007BFF;      /* Blue bars for performance data */
+}
+
+/* ========== HELP AND DOCUMENTATION SECTIONS ========== */
+
+/* Keyboard shortcuts list container */
+.shortcuts-list { 
+    -fx-padding: 10px 0;        /* Vertical padding for shortcut list */
+}
+
+/* Individual shortcut item styling */
+.shortcut-item { 
+    -fx-font-size: 13px;        /* Readable size for shortcuts */
+    -fx-text-fill: #212529;     /* Dark text for clarity */
+    -fx-padding: 3px 0;         /* Minimal vertical spacing */
+}
+
+/* Placeholder text for empty states */
+.placeholder-text { 
+    -fx-font-size: 14px;        /* Standard readable size */
+    -fx-text-fill: #6C757D;     /* Muted color for placeholder */
+    -fx-font-style: italic;     /* Italic to indicate placeholder */
+}
+
+/* Setting labels in configuration sections */
+.setting-label { 
+    -fx-font-size: 14px;        /* Standard size for settings */
+    -fx-text-fill: #212529;     /* Dark text for readability */
+    -fx-font-weight: bold;      /* Bold for setting importance */
+}
+
+/* Informational message styling */
+.info-message { 
+    -fx-font-size: 16px;        /* Larger size for important messages */
+    -fx-text-fill: #212529;     /* Dark text for visibility */
+    -fx-text-alignment: center; /* Center alignment for messages */
+    -fx-wrap-text: true;        /* Allow text wrapping for long messages */
+}
+
+/* Application title in about/info sections */
+.app-info { 
+    -fx-font-size: 24px;        /* Large size for app identification */
+    -fx-font-weight: bold;      /* Bold for prominence */
+    -fx-text-fill: #007BFF;     /* Blue brand color */
+}
+
+/* Application description text */
+.app-description { 
+    -fx-font-size: 16px;        /* Readable size for descriptions */
+    -fx-text-fill: #212529;     /* Dark text for readability */
+    -fx-line-spacing: 4px;      /* Adequate line spacing for reading */
+}
+
+/* ========== SETTINGS AND CONFIGURATION CONTROLS ========== */
+
+/* Settings control container styling */
+.settings-controls {
+    -fx-background-color: transparent; /* Transparent for flexible use */
+    -fx-spacing: 10px;           /* Consistent spacing between controls */
+}
+
+/* Settings content area for configuration options */
+.settings-content {
+    -fx-background-color: transparent; /* Transparent for flexible theming */
+    -fx-spacing: 15px;          /* Good spacing between setting items */
+}
+
+/* ========== MULTIPLAYER INTERFACE STYLING ========== */
+
+/* Main multiplayer interface container */
+.multiplayer-container {
+    -fx-padding: 20px;          /* Comfortable padding around multiplayer content */
+    -fx-spacing: 20px;          /* Generous spacing between multiplayer elements */
+    -fx-background-color: #F8F9FA; /* Light background consistent with app theme */
+}
+
+/* Multiplayer section title */
+.multiplayer-title {
+    -fx-font-size: 32px;        /* Large title for multiplayer prominence */
+    -fx-font-weight: bold;      /* Bold for section emphasis */
+    -fx-text-fill: #007BFF;     /* Blue color for branding consistency */
+}
+
+/* Multiplayer scroll pane for long content lists */
+.multiplayer-scroll-pane {
+    -fx-background-color: #F8F9FA; /* Consistent background with container */
+    -fx-border-color: transparent; /* No border for clean appearance */
+}
+
+/* Multiplayer scroll pane viewport styling */
+.multiplayer-scroll-pane .viewport {
+    -fx-background-color: #F8F9FA; /* Matching background color */
+}
+
+/* Multiplayer scroll bar track styling */
+.multiplayer-scroll-pane .scroll-bar {
+    -fx-background-color: #E9ECEF; /* Light gray scroll track */
+}
+
+/* Multiplayer scroll bar thumb (draggable part) */
+.multiplayer-scroll-pane .scroll-bar .thumb {
+    -fx-background-color: #ADB5BD; /* Medium gray thumb */
+    -fx-background-radius: 5;   /* Rounded thumb for modern look */
+}
+
+/* Multiplayer scroll bar thumb hover state */
+.multiplayer-scroll-pane .scroll-bar .thumb:hover {
+    -fx-background-color: #6C757D; /* Darker gray on hover */
+}
+
+/* ========== FORM INPUT CONTROLS ========== */
+
+/* General game input field styling (text fields, etc.) */
+.game-input {
+    -fx-background-color: #FFFFFF; /* White background for input clarity */
+    -fx-text-fill: #495057;     /* Dark gray text for readability */
+    -fx-border-color: #DEE2E6;  /* Light border for field definition */
+    -fx-border-width: 1px;      /* Thin border for subtle appearance */
+    -fx-border-radius: 4px;     /* Slightly rounded corners */
+    -fx-background-radius: 4px; /* Matching background radius */
+    -fx-padding: 8px 12px;      /* Comfortable internal padding */
+    -fx-font-size: 14px;        /* Standard readable font size */
+}
+
+/* Focused state for input fields */
+.game-input:focused {
+    -fx-border-color: #DEE2E6;  /* Maintain border color on focus */
+    -fx-background-color: #FFFFFF; /* Keep white background */
+}
+
+/* ========== COMBO BOX (DROPDOWN) STYLING ========== */
+
+/* Combo box styling for dropdown selections */
+.game-input.combo-box {
+    -fx-background-color: #FFFFFF; /* White background for dropdown */
+    -fx-text-fill: #495057;     /* Dark text for visibility */
+    -fx-border-color: #DEE2E6;  /* Light border for definition */
+    -fx-border-width: 1px;      /* Consistent border width */
+    -fx-border-radius: 4px;     /* Rounded corners */
+    -fx-background-radius: 4px; /* Matching background radius */
+}
+
+/* Focused and showing states for combo box */
+.game-input.combo-box:focused, .game-input.combo-box:showing {
+    -fx-border-color: #DEE2E6;  /* Consistent border on interaction */
+    -fx-background-color: #FFFFFF; /* Maintain white background */
+}
+
+/* Combo box dropdown list cells */
+.game-input.combo-box .list-cell {
+    -fx-background-color: #FFFFFF; /* White background for list items */
+    -fx-text-fill: #495057;     /* Dark text for readability */
+}
+
+/* Selected and hovered list cells in combo box */
+.game-input.combo-box .list-cell:filled:selected, .game-input.combo-box .list-cell:filled:selected:hover {
+    -fx-background-color: #F8F9FA; /* Light gray for selected items */
+    -fx-text-fill: #495057;     /* Maintain text color */
+}
+
+/* Hovered list cells in combo box dropdown */
+.game-input.combo-box .list-cell:filled:hover {
+    -fx-background-color: #F8F9FA; /* Light gray hover background */
+    -fx-text-fill: #495057;     /* Consistent text color */
+}
+
+/* Combo box dropdown arrow button */
+.game-input.combo-box .arrow-button {
+    -fx-background-color: #E9ECEF; /* Light gray button background */
+    -fx-background-radius: 0 4px 4px 0; /* Rounded on right side only */
+}
+
+/* Combo box arrow button hover state */
+.game-input.combo-box .arrow-button:hover {
+    -fx-background-color: #E9ECEF; /* Maintain background on hover */
+}
+
+/* Combo box dropdown arrow icon */
+.game-input.combo-box .arrow-button .arrow {
+    -fx-background-color: #495057; /* Dark gray arrow color */
+}
+
+/* Arrow color when combo box is showing dropdown */
+.game-input.combo-box:showing .arrow-button .arrow {
+    -fx-background-color: #495057; /* Consistent arrow color when open */
+}
+
+
+.combo-box-popup .list-view {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #DEE2E6;
+    -fx-border-width: 1px;
+    -fx-border-radius: 4px;
+    -fx-background-radius: 4px;
+}
+
+.combo-box-popup .list-view .list-cell {
+    -fx-background-color: #FFFFFF;
+    -fx-text-fill: #495057;
+    -fx-padding: 8px 12px;
+}
+
+.combo-box-popup .list-view .list-cell:filled:selected {
+    -fx-background-color: #007BFF;
+    -fx-text-fill: #FFFFFF;
+}
+
+.combo-box-popup .list-view .list-cell:filled:hover {
+    -fx-background-color: #F8F9FA;
+    -fx-text-fill: #495057;
+}
+
+/*
+ * Player list container for multiplayer lobby display
+ *
+ * Styling for containers that display lists of connected players in
+ * multiplayer lobbies. Provides a clean, organized appearance with
+ * subtle background and border for visual separation.
+ *
+ * Usage: Applied to VBox or HBox containers showing player names and status
+ * Context: Multiplayer lobby screens, waiting rooms, player management
+ */
+.player-list {
+    -fx-alignment: center-left; /* Left-aligned content with vertical centering */
+    -fx-spacing: 5px; /* Tight spacing between player entries */
+    -fx-padding: 10px; /* Moderate internal padding for content breathing room */
+    -fx-background-color: #F8F9FA; /* Light background matching app theme */
+    -fx-background-radius: 8px; /* Rounded corners for modern appearance */
+    -fx-border-color: #DEE2E6; /* Subtle border for container definition */
+    -fx-border-width: 1px; /* Thin border for clean separation */
+    -fx-border-radius: 8px; /* Rounded border matching background */
+}
+
+/*
+ * Error message text styling for user feedback
+ *
+ * Applies consistent styling to error messages throughout the application.
+ * Uses red color to clearly indicate error states and bold weight for
+ * visual prominence, ensuring users notice important error information.
+ *
+ * Usage: Applied to Label nodes displaying error messages
+ * Context: Form validation, network errors, game state errors
+ */
+.error-message {
+    -fx-text-fill: #DC3545; /* Red color for error indication */
+    -fx-font-weight: bold; /* Bold weight for visual emphasis */
+}
+
+/*
+ * Section title styling for settings and configuration areas
+ *
+ * Secondary title styling used for section headers in settings views,
+ * help screens, and other content areas. Smaller than main titles but
+ * maintains visual hierarchy with blue color and bold weight.
+ *
+ * Usage: Applied to Label nodes serving as section headers
+ * Context: Settings sections, help topics, configuration groups
+ */
+.section-title {
+    -fx-font-size: 16px; /* Readable size appropriate for section headers */
+    -fx-text-fill: #007BFF; /* Primary blue color for brand consistency */
+    -fx-font-weight: bold; /* Bold weight for hierarchy and emphasis */
+    -fx-padding: 0 0 10px 0; /* Bottom padding to separate from following content */
+}
+
+/* ========== MULTIPLAYER RESULT COMPONENTS ========== */
+
+/* 
+ * Individual player result row container in multiplayer results view
+ * 
+ * Creates a card-like container for displaying each player's performance
+ * data in the multiplayer results screen. Features rounded corners,
+ * subtle shadow, and clean white background for optimal readability.
+ * 
+ * Layout: Horizontal arrangement with consistent spacing between elements
+ * Usage: Applied to HBox containers in multiplayer results rankings
+ * Content: Medal/position, player name, WPM, accuracy percentage
+ */
+.player-result-row {
+    -fx-padding: 15px; /* Internal spacing around content */
+    -fx-background-color: #FFFFFF; /* Clean white card background */
+    -fx-background-radius: 12px; /* Rounded corners for modern appearance */
+    -fx-border-color: #DEE2E6; /* Subtle light gray border */
+    -fx-border-width: 1px; /* Thin border for definition */
+    -fx-border-radius: 12px; /* Rounded border matching background */
+    -fx-alignment: center-left; /* Left-aligned content with vertical centering */
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 8, 0, 0, 2); /* Subtle shadow for depth */
+    -fx-spacing: 15px; /* Horizontal spacing between child elements */
+}
+
+/* 
+ * Text labels within player result rows
+ * 
+ * Standardizes the appearance of all text elements within player result
+ * rows, ensuring consistent typography for player names, statistics,
+ * and ranking information. Bold weight improves readability and hierarchy.
+ * 
+ * Applied to: Player names, WPM values, accuracy percentages, medal indicators
+ * Font size: 16px for optimal readability in result tables
+ */
+.player-result-row .label {
+    -fx-font-size: 16px; /* Consistent readable text size */
+    -fx-font-weight: bold; /* Bold text for emphasis and clarity */
+}

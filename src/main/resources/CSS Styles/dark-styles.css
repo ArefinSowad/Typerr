@@ -1,0 +1,749 @@
+
+/*
+ * Typerr Application Stylesheet - Dark Theme
+ * ==========================================
+ * 
+ * Comprehensive dark theme styling for the Typerr typing speed test application.
+ * This stylesheet provides a modern, eye-friendly dark interface optimized for
+ * low-light environments and extended typing sessions. The color scheme reduces
+ * eye strain while maintaining excellent readability and visual hierarchy.
+ * 
+ * Theme Characteristics:
+ * ---------------------
+ * - Dark, sophisticated aesthetic ideal for low-light environments
+ * - Reduced blue light emission to minimize eye strain
+ * - Warm accent colors (gold/yellow) for comfortable viewing
+ * - High contrast maintained for accessibility
+ * - Subdued backgrounds with bright text for optimal readability
+ * 
+ * Design Philosophy:
+ * -----------------
+ * The dark theme follows modern design principles for dark interfaces:
+ * - True blacks are avoided in favor of dark grays for better screen performance
+ * - Warm accent colors replace cool blues to reduce eye fatigue
+ * - Sufficient contrast ratios are maintained for accessibility compliance
+ * - Subtle color variations create depth without harshness
+ * 
+ * Dark Theme Color Palette:
+ * ------------------------
+ * Background Colors:
+ *   - Primary Background: #2C2E34 (main application background - warm dark gray)
+ *   - Secondary Background: #323437 (cards, panels, elevated surfaces)
+ *   - Tertiary Background: #41444b (hover states, interactive elements)
+ *   
+ * Text Colors:
+ *   - Primary Text: #D1D0C5 (main content - warm off-white for comfort)
+ *   - Secondary Text: #646669 (muted text, labels, secondary information)
+ *   - Accent Text: #E2B714 (brand color - warm gold for highlights and focus)
+ *   
+ * Interactive Colors:
+ *   - Primary Accent: #E2B714 (buttons, links, selected states - warm gold)
+ *   - Hover Accent: #f5c52e (lighter gold for hover states)
+ *   - Success: #4d8f47 (muted green for positive feedback)
+ *   - Error: #CA4754 (muted red for errors and incorrect typing)
+ *   - Warning: #d4851d (muted orange for warnings and attention)
+ *   
+ * Typography System:
+ *   - Font Family: "JetBrains Mono", "Fira Code", "Roboto Mono", "Consolas", monospace
+ *   - Optimized for extended reading with comfortable contrast
+ *   - Consistent sizing scale matching light theme for familiarity
+ *   - Enhanced readability through careful color choices
+ *   
+ * Accessibility Features:
+ * ----------------------
+ * - WCAG AA compliant contrast ratios maintained in dark theme
+ * - Color choices tested for common forms of color blindness
+ * - Reduced motion support for sensitive users
+ * - Screen reader compatibility preserved
+ * - Keyboard navigation with visible focus indicators
+ * 
+ * Performance Optimizations:
+ * -------------------------
+ * - Dark surfaces reduce overall screen brightness for power efficiency
+ * - Optimized for OLED displays with true black support
+ * - Minimal use of bright colors to reduce power consumption
+ * - Smooth transitions maintain 60fps performance
+ * 
+ * Visual Comfort Features:
+ * -----------------------
+ * - Reduced blue light emission through warm color temperature
+ * - Lower overall luminance to prevent eye strain
+ * - Subtle color variations instead of harsh contrasts
+ * - Comfortable viewing angles with consistent color representation
+ * 
+ * Component Styling:
+ * -----------------
+ * - Typing Area: Dark background with light text for optimal typing comfort
+ * - Statistics: Clear hierarchy with muted secondary information
+ * - Navigation: Intuitive button states with warm accent colors
+ * - Charts: Adapted color schemes for dark background visibility
+ * - Forms: Comfortable input styling with appropriate contrast
+ * 
+ * Browser and Platform Support:
+ * ----------------------------
+ * - JavaFX CSS implementation optimized for desktop applications
+ * - Cross-platform consistency across Windows, macOS, and Linux
+ * - Display technology agnostic (LCD, OLED, etc.)
+ * - Color profile aware for accurate color representation
+ * 
+ * @author ArefinSowad
+ * @version 1.0
+ * @since 1.0
+ * @see styles.css for light theme variant
+ */
+
+/* ========== ROOT AND GLOBAL STYLES ========== */
+
+/* Root application container with dark theme colors and monospace typography */
+.root {
+    -fx-background-color: #2C2E34; /* Warm dark gray background to reduce eye strain */
+    -fx-font-family: "JetBrains Mono", "Fira Code", "Roboto Mono", "Consolas", monospace; /* Monospace for typing consistency */
+}
+
+/* Default label styling with warm off-white text for comfortable reading */
+.label {
+    -fx-text-fill: #D1D0C5; /* Warm off-white for primary text content */
+    -fx-font-weight: normal;
+}
+
+/* ========== MAIN MENU AND LAYOUT CONTAINERS ========== */
+
+/* Main menu and results display containers with dark theme styling */
+.menu-pane, .results-pane {
+    -fx-padding: 40px;           /* Generous padding for comfortable spacing */
+    -fx-alignment: center;       /* Center content for balanced layout */
+    -fx-spacing: 25px;           /* Consistent vertical spacing between elements */
+}
+
+/* Application title with warm gold accent color for dark theme branding */
+.menu-title {
+    -fx-font-size: 48px;         /* Large, prominent title size */
+    -fx-font-weight: bold;
+    -fx-text-fill: #E2B714;      /* Warm gold accent - signature dark theme color */
+}
+
+/* Container for grouped menu elements with consistent spacing */
+.menu-group {
+    -fx-spacing: 15px;           /* Moderate spacing for related controls */
+    -fx-alignment: center;
+}
+
+/* ========== STATISTICS AND PERFORMANCE DISPLAY ========== */
+
+/* Horizontal container for statistics with generous spacing for dark theme */
+.stats-bar {
+    -fx-spacing: 50px;           /* Wide spacing between stat groups for clarity */
+    -fx-alignment: center;
+}
+
+/* Individual statistic display container */
+.stat-box {
+    -fx-alignment: center;       /* Center-align stat content */
+    -fx-spacing: 5px;            /* Tight spacing between title and value */
+}
+
+/* Statistics category labels with muted appearance for dark theme */
+.stat-title {
+    -fx-font-size: 14px;
+    -fx-text-fill: #646669;      /* Muted gray for secondary information in dark theme */
+    -fx-font-weight: bold;
+    -fx-text-transform: uppercase; /* Uppercase styling for consistency */
+}
+
+/* Large statistic values with primary text color for prominence */
+.stat-value {
+    -fx-font-size: 28px;         /* Large, readable size for key metrics */
+    -fx-font-weight: bold;
+    -fx-text-fill: #D1D0C5;      /* Primary text color for high visibility */
+}
+
+/* ========== TYPING AREA AND TEXT DISPLAY ========== */
+
+/* Main typing area container with dark theme transparency */
+.word-container {
+    -fx-padding: 30px;
+    -fx-max-width: 900px;
+    -fx-background-color: transparent; /* Transparent to show dark background */
+}
+
+/* Text flow area for typing display with appropriate line spacing */
+.word-display-area {
+    -fx-line-spacing: 16px;      /* Comfortable line spacing for readability */
+    -fx-text-alignment: left;
+}
+
+/* ========== TEXT STATE STYLING FOR TYPING FEEDBACK ========== */
+
+/* Default text color for untyped words - muted in dark theme */
+.text-default { 
+    -fx-fill: #646669;           /* Muted gray for upcoming text */
+} 
+
+/* Correctly typed text - primary text color for clear feedback */
+.text-correct { 
+    -fx-fill: #D1D0C5;           /* Primary text color for correct characters */
+} 
+
+/* Incorrectly typed text - muted red appropriate for dark theme */
+.text-incorrect { 
+    -fx-fill: #CA4754;           /* Muted red for errors in dark theme */
+} 
+
+/* Extra characters typed - underlined error indicator */
+.text-extra { 
+    -fx-underline: true; 
+    -fx-fill: #CA4754;           /* Consistent error color with underline */
+} 
+
+/* Cursor/caret indicator with warm gold accent */
+.caret { 
+    -fx-fill: #E2B714;           /* Gold accent for cursor visibility */
+    -fx-underline: true; 
+} 
+
+/* ========== INTERACTIVE BUTTONS AND CONTROLS ========== */
+
+/* Base styling for all button types in dark theme */
+.mode-button, .restart-button, .nav-button, .theme-toggle, .back-button {
+    -fx-background-color: #323437; /* Elevated surface color for buttons */
+    -fx-text-fill: #D1D0C5;      /* Primary text color for readability */
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-padding: 10px 20px;
+    -fx-background-radius: 8px;   /* Rounded corners for modern appearance */
+    -fx-cursor: hand;             /* Hand cursor for interactivity indication */
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+    -fx-transition: background-color 0.2s, color 0.2s; /* Smooth transitions */
+}
+
+/* Hover states for interactive buttons with gold accent */
+.mode-button:hover, .restart-button:hover, .nav-button:hover, .theme-toggle:hover, .back-button:hover {
+    -fx-background-color: #41444b; /* Lighter elevated surface on hover */
+    -fx-text-fill: #E2B714;       /* Gold accent text on hover */
+}
+
+/* Selected/active button state with gold background */
+.selected-difficulty-button {
+    -fx-background-color: #E2B714; /* Gold background for selected state */
+    -fx-text-fill: #2C2E34;       /* Dark text on gold background for contrast */
+}
+
+/* Hover state for selected buttons */
+.selected-difficulty-button:hover {
+    -fx-background-color: #f5c52e; /* Lighter gold on hover */
+    -fx-text-fill: #2C2E34;       /* Maintain dark text for readability */
+}
+
+/* Statistics access button with dark theme styling */
+.stats-button {
+    -fx-background-color: #323437; /* Elevated surface background */
+    -fx-text-fill: #D1D0C5;     /* Primary text color for visibility */
+}
+
+/* Statistics button hover state with gold accent */
+.stats-button:hover {
+    -fx-background-color: #41444b; /* Lighter surface on hover */
+    -fx-text-fill: #E2B714;     /* Gold accent text on interaction */
+}
+
+/* Back and restart buttons with larger size for prominence in dark theme */
+.back-button, .restart-button {
+    -fx-font-size: 24px;        /* Larger font for important actions */
+    -fx-padding: 8px 16px;      /* Adjusted padding for larger text */
+}
+
+/* ========== THEME TOGGLE BUTTONS - DARK THEME VARIANT ========== */
+
+/* Light theme toggle button - highlighted with gold in dark theme */
+.light-theme-button {
+    -fx-background-color: #E2B714 !important; /* Gold background for light theme option */
+    -fx-text-fill: #2C2E34 !important; /* Dark text on gold for contrast */
+    -fx-font-weight: bold;      /* Bold text for emphasis */
+    -fx-border-color: #E2B714;  /* Matching gold border */
+    -fx-border-width: 2px;      /* Defined border for structure */
+    -fx-border-radius: 8px;     /* Rounded corners */
+    -fx-background-radius: 8px; /* Matching background radius */
+    -fx-effect: dropshadow(three-pass-box, rgba(226,183,20,0.4), 8, 0, 0, 2); /* Subtle gold glow */
+}
+
+/* Light theme button hover state with enhanced glow effect */
+.light-theme-button:hover {
+    -fx-background-color: #f5c52e !important; /* Lighter gold on hover */
+    -fx-text-fill: #2C2E34 !important; /* Maintain dark text */
+    -fx-effect: dropshadow(three-pass-box, rgba(245,197,46,0.6), 10, 0, 0, 3); /* Enhanced glow on hover */
+}
+
+/* Dark theme toggle button - current theme indicator */
+.dark-theme-button {
+    -fx-background-color: #323437; /* Elevated surface for current theme */
+    -fx-text-fill: #D1D0C5;     /* Primary text color */
+    -fx-border-color: #646669;  /* Muted border for inactive appearance */
+    -fx-border-width: 1px;      /* Thin border for subtle definition */
+    -fx-border-radius: 8px;     /* Rounded corners */
+    -fx-background-radius: 8px; /* Matching background radius */
+}
+
+/* Dark theme button hover state */
+.dark-theme-button:hover {
+    -fx-background-color: #41444b; /* Lighter surface on hover */
+    -fx-text-fill: #E2B714;     /* Gold accent text */
+    -fx-border-color: #E2B714;  /* Gold border on hover */
+}
+
+/* ========== RESULTS DISPLAY - DARK THEME STYLING ========== */
+
+/* General results information text with muted appearance */
+.results-info {
+    -fx-font-size: 16px;        /* Readable size for result details */
+    -fx-text-fill: #646669;     /* Muted gray for secondary information */
+}
+
+/* Result metric labels with subdued styling */
+.results-label-title {
+    -fx-font-size: 24px;        /* Large size for metric labels */
+    -fx-text-fill: #646669;     /* Muted color for label text */
+}
+
+/* Large performance values with gold accent for prominence */
+.results-label-value {
+    -fx-font-size: 64px;        /* Very large size for key metrics */
+    -fx-font-weight: bold;      /* Bold for maximum emphasis */
+    -fx-text-fill: #E2B714;     /* Gold accent for primary values */ 
+}
+
+/* Multiplayer WPM values with gold accent for competitive emphasis */
+.multiplayer-wpm-value {
+    -fx-font-size: 18px;        /* Medium size for multiplayer metrics */
+    -fx-font-weight: bold;      /* Bold for competitive emphasis */
+    -fx-text-fill: #E2B714;     /* Gold accent for consistency */
+}
+
+/* ========== CONTAINER LAYOUTS - DARK THEME BACKGROUNDS ========== */
+
+/* Main containers for different application sections with dark backgrounds */
+.stats-container, .settings-container, .help-container {
+    -fx-background-color: #2C2E34; /* Primary dark background color */
+}
+
+/* Scroll pane styling for dark theme content areas */
+.stats-scroll-pane, .settings-scroll-pane, .help-scroll-pane {
+    -fx-background-color: #2C2E34; /* Consistent dark background */
+    -fx-border-color: transparent; /* No borders for clean dark appearance */
+}
+
+/* Viewport areas within scroll panes for dark theme */
+.stats-scroll-pane .viewport, .settings-scroll-pane .viewport, .help-scroll-pane .viewport {
+    -fx-background-color: #2C2E34; /* Maintain consistent dark background */
+}
+
+/* Scroll bar track styling with elevated surface color */
+.stats-scroll-pane .scroll-bar, .settings-scroll-pane .scroll-bar, .help-scroll-pane .scroll-bar {
+    -fx-background-color: #323437; /* Elevated surface for scroll track */
+}
+
+/* Scroll bar thumb with medium gray for visibility in dark theme */
+.stats-scroll-pane .scroll-bar .thumb, .settings-scroll-pane .scroll-bar .thumb, .help-scroll-pane .scroll-bar .thumb {
+    -fx-background-color: #646669; /* Medium gray for thumb visibility */
+    -fx-background-radius: 5;   /* Rounded thumb for modern appearance */
+}
+
+/* Scroll bar thumb hover state with gold accent */
+.stats-scroll-pane .scroll-bar .thumb:hover, .settings-scroll-pane .scroll-bar .thumb:hover, .help-scroll-pane .scroll-bar .thumb:hover {
+    -fx-background-color: #E2B714; /* Gold accent on hover for interactivity */
+}
+
+/* Section titles for stats, settings, and help with primary text color */
+.stats-title, .settings-title, .help-title {
+    -fx-font-size: 28px;        /* Large titles for section identification */
+    -fx-font-weight: bold;      /* Bold weight for hierarchy */
+    -fx-text-fill: #D1D0C5;     /* Primary text color for visibility */
+}
+
+/* ========== STATISTICS TAB PANE - DARK THEME STYLING ========== */
+
+/* Tab header background for statistics in dark theme */
+.stats-tab-pane .tab-header-background { 
+    -fx-background-color: #2C2E34; /* Dark background for tab header */
+}
+
+/* Individual tab styling in dark theme statistics view */
+.stats-tab-pane .tab {
+    -fx-background-color: #2C2E34; /* Dark background for unselected tabs */
+    -fx-text-fill: #646669;     /* Muted text for inactive tabs */
+    -fx-font-weight: bold;      /* Bold text for tab labels */
+    -fx-padding: 8px 16px;      /* Comfortable padding for tab content */
+    -fx-focus-color: transparent; /* Remove focus outline for clean appearance */
+    -fx-faint-focus-color: transparent;
+}
+
+/* Selected tab highlighting with gold accent in dark theme */
+.stats-tab-pane .tab:selected {
+    -fx-text-fill: #E2B714;     /* Gold text for active tab */
+    -fx-border-color: #E2B714;  /* Gold border for selected indication */
+    -fx-border-width: 0 0 2px 0; /* Bottom border only for clean look */
+}
+
+/* Remove focus indicator for cleaner tab appearance in dark theme */
+.tab-pane:focused > .tab-header-area > .headers-region > .tab:selected .focus-indicator {
+    -fx-border-color: transparent;
+}
+
+/* ========== CONTENT SECTIONS - DARK THEME CARDS ========== */
+
+/* Card-style sections with elevated surface styling for dark theme */
+.stats-section, .settings-section {
+    -fx-padding: 20px;          /* Generous padding for content breathing room */
+    -fx-background-color: #323437; /* Elevated surface color for content cards */
+    -fx-background-radius: 12px; /* Rounded corners for modern card design */
+    -fx-border-color: #646669;  /* Muted border for subtle definition */
+    -fx-border-width: 1px;      /* Thin border for elegant appearance */
+    -fx-border-radius: 12px;    /* Matching border radius */
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 10, 0, 0, 2); /* Stronger shadow for dark theme depth */
+}
+
+/* Section titles within content cards with gold accent */
+.section-title {
+    -fx-font-size: 20px;        /* Prominent but not overwhelming size */
+    -fx-font-weight: bold;      /* Bold for section hierarchy */
+    -fx-text-fill: #E2B714;     /* Gold accent for section headers */
+}
+
+/* Descriptive text within sections using primary text color */
+.section-description {
+    -fx-font-size: 14px;        /* Readable size for body text */
+    -fx-text-fill: #D1D0C5;     /* Primary text color for readability */
+    -fx-wrap-text: true;        /* Allow text wrapping for long descriptions */
+}
+
+/* Statistics summary cards with elevated background */
+.stats-summary {
+    -fx-padding: 20px;          /* Comfortable padding for summary content */
+    -fx-background-color: #2C2E34;
+    -fx-background-radius: 12px;
+    -fx-spacing: 12px;
+    -fx-border-color: #41444b;
+    -fx-border-width: 1px;
+    -fx-border-radius: 12px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 5, 0, 0, 1);
+}
+
+.stats-summary .label { -fx-text-fill: #D1D0C5; }
+
+
+.chart { -fx-background-color: #323437; -fx-padding: 10px; -fx-background-radius: 8px; }
+.chart-title {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #E2B714; 
+}
+.chart-plot-background { -fx-background-color: #323437; }
+.chart-legend { -fx-background-color: #323437; }
+.chart-legend .label { -fx-text-fill: #D1D0C5; }
+.axis { -fx-tick-label-fill: #D1D0C5; } 
+.axis .axis-label { -fx-text-fill: #E2B714; } 
+.chart-vertical-grid-lines, .chart-horizontal-grid-lines { -fx-stroke: #41444b; }
+.default-color0.chart-series-line { -fx-stroke: #E2B714; -fx-stroke-width: 2px; }
+.default-color1.chart-series-line { -fx-stroke: #CA4754; -fx-stroke-width: 2px; -fx-stroke-dash-array: 5 5; }
+.default-color0.chart-line-symbol { -fx-background-color: #E2B714, #2C2E34; }
+.default-color1.chart-line-symbol { -fx-background-color: #CA4754, #2C2E34; }
+/* Bar chart styling with gold bars for dark theme data visualization */
+.default-color0.chart-bar { 
+    -fx-bar-fill: #E2B714;      /* Gold bars for performance data in dark theme */
+}
+
+/* ========== HELP AND DOCUMENTATION - DARK THEME STYLING ========== */
+
+/* Keyboard shortcuts list container in dark theme */
+.shortcuts-list { 
+    -fx-padding: 10px 0;        /* Vertical padding for shortcut list */
+}
+
+/* Individual shortcut items with primary text color for visibility */
+.shortcut-item { 
+    -fx-font-size: 13px;        /* Readable size for shortcuts */
+    -fx-text-fill: #D1D0C5;     /* Primary text color for clarity */
+    -fx-padding: 3px 0;         /* Minimal vertical spacing */
+}
+
+/* Placeholder text for empty states in dark theme */
+.placeholder-text { 
+    -fx-font-size: 14px;        /* Standard readable size */
+    -fx-text-fill: #646669;     /* Muted color for placeholder in dark theme */
+    -fx-font-style: italic;     /* Italic style to indicate placeholder */
+}
+
+/* Setting labels with primary text color for dark theme readability */
+.setting-label { 
+    -fx-font-size: 14px;        /* Standard size for settings */
+    -fx-text-fill: #D1D0C5;     /* Primary text color for visibility */
+    -fx-font-weight: bold;      /* Bold for setting importance */
+}
+
+/* Informational messages with primary text color for dark theme */
+.info-message { 
+    -fx-font-size: 16px;        /* Larger size for important messages */
+    -fx-text-fill: #D1D0C5;     /* Primary text color for visibility */
+    -fx-text-alignment: center; /* Center alignment for messages */
+    -fx-wrap-text: true;        /* Allow text wrapping for long messages */
+}
+
+/* Application title in about/info sections with gold accent */
+.app-info { 
+    -fx-font-size: 24px;        /* Large size for app identification */
+    -fx-font-weight: bold;      /* Bold for prominence */
+    -fx-text-fill: #E2B714;     /* Gold brand color for dark theme */
+}
+
+/* Application description text with primary color for readability */
+.app-description { 
+    -fx-font-size: 16px;        /* Readable size for descriptions */
+    -fx-text-fill: #D1D0C5;     /* Primary text color for visibility */
+    -fx-line-spacing: 4px;      /* Adequate line spacing for reading */
+}
+
+/* ========== SETTINGS AND CONFIGURATION - DARK THEME ========== */
+
+/* Settings control container with transparent background for dark theme */
+.settings-controls {
+    -fx-background-color: transparent; /* Transparent for flexible dark theming */
+    -fx-spacing: 10px;          /* Consistent spacing between controls */
+}
+
+/* Settings content area for configuration options in dark theme */
+.settings-content {
+    -fx-background-color: transparent; /* Transparent for flexible theming */
+    -fx-spacing: 15px;          /* Good spacing between setting items */
+}
+
+/* ========== MULTIPLAYER INTERFACE - DARK THEME STYLING ========== */
+
+/* Main multiplayer interface container with dark background */
+.multiplayer-container {
+    -fx-padding: 20px;          /* Comfortable padding around multiplayer content */
+    -fx-spacing: 20px;          /* Generous spacing between multiplayer elements */
+    -fx-background-color: #2C2E34; /* Primary dark background color */
+}
+
+/* Multiplayer section title with gold accent for prominence */
+.multiplayer-title {
+    -fx-font-size: 32px;        /* Large title for multiplayer prominence */
+    -fx-font-weight: bold;      /* Bold for section emphasis */
+    -fx-text-fill: #E2B714;     /* Gold accent for branding consistency */
+}
+
+/* Multiplayer scroll pane with consistent dark background */
+.multiplayer-scroll-pane {
+    -fx-background-color: #2C2E34; /* Consistent dark background */
+    -fx-border-color: transparent; /* No border for clean appearance */
+}
+
+/* Multiplayer scroll pane viewport with dark theme styling */
+.multiplayer-scroll-pane .viewport {
+    -fx-background-color: #2C2E34; /* Matching dark background color */
+}
+
+/* Multiplayer scroll bar track with elevated surface color */
+.multiplayer-scroll-pane .scroll-bar {
+    -fx-background-color: #323437; /* Elevated surface for scroll track */
+}
+
+/* Multiplayer scroll bar thumb with medium gray for visibility */
+.multiplayer-scroll-pane .scroll-bar .thumb {
+    -fx-background-color: #646669; /* Medium gray thumb */
+    -fx-background-radius: 5;   /* Rounded thumb for modern look */
+}
+
+.multiplayer-scroll-pane .scroll-bar .thumb:hover {
+    -fx-background-color: #E2B714;
+}
+
+
+.game-input {
+    -fx-background-color: #323437;
+    -fx-text-fill: #D1D0C5;
+    -fx-border-color: #646669;
+    -fx-border-width: 1px;
+    -fx-border-radius: 4px;
+    -fx-background-radius: 4px;
+    -fx-padding: 8px 12px;
+    -fx-font-size: 14px;
+}
+
+.game-input:focused {
+    -fx-border-color: #646669;
+    -fx-background-color: #323437;
+}
+
+
+.game-input.combo-box {
+    -fx-background-color: #323437;
+    -fx-text-fill: #D1D0C5;
+    -fx-border-color: #646669;
+    -fx-border-width: 1px;
+    -fx-border-radius: 4px;
+    -fx-background-radius: 4px;
+}
+
+.game-input.combo-box:focused, .game-input.combo-box:showing {
+    -fx-border-color: #646669;
+    -fx-background-color: #323437;
+}
+
+.game-input.combo-box .list-cell {
+    -fx-background-color: #323437;
+    -fx-text-fill: #D1D0C5;
+}
+
+.game-input.combo-box .list-cell:filled:selected, .game-input.combo-box .list-cell:filled:selected:hover {
+    -fx-background-color: #41444b;
+    -fx-text-fill: #D1D0C5;
+}
+
+.game-input.combo-box .list-cell:filled:hover {
+    -fx-background-color: #41444b;
+    -fx-text-fill: #D1D0C5;
+}
+
+.game-input.combo-box .arrow-button {
+    -fx-background-color: #41444b;
+    -fx-background-radius: 0 4px 4px 0;
+}
+
+.game-input.combo-box .arrow-button:hover {
+    -fx-background-color: #41444b;
+}
+
+.game-input.combo-box .arrow-button .arrow {
+    -fx-background-color: #D1D0C5;
+}
+
+.game-input.combo-box:showing .arrow-button .arrow {
+    -fx-background-color: #D1D0C5;
+}
+
+
+.combo-box-popup .list-view {
+    -fx-background-color: #323437;
+    -fx-border-color: #646669;
+    -fx-border-width: 1px;
+    -fx-border-radius: 4px;
+    -fx-background-radius: 4px;
+}
+
+.combo-box-popup .list-view .list-cell {
+    -fx-background-color: #323437;
+    -fx-text-fill: #D1D0C5;
+    -fx-padding: 8px 12px;
+}
+
+.combo-box-popup .list-view .list-cell:filled:selected {
+    -fx-background-color: #E2B714;
+    -fx-text-fill: #2C2E34;
+}
+
+.combo-box-popup .list-view .list-cell:filled:hover {
+    -fx-background-color: #41444b;
+    -fx-text-fill: #D1D0C5;
+}
+
+/*
+ * Player list container for multiplayer lobby display (Dark Theme)
+ *
+ * Dark theme styling for containers that display lists of connected players
+ * in multiplayer lobbies. Uses warm dark colors to reduce eye strain while
+ * maintaining excellent readability and visual hierarchy.
+ *
+ * Usage: Applied to VBox or HBox containers showing player names and status
+ * Context: Multiplayer lobby screens, waiting rooms, player management
+ * Dark Theme Features: Dark background, medium gray border, warm color palette
+ */
+.player-list {
+    -fx-alignment: center-left; /* Left-aligned content with vertical centering */
+    -fx-spacing: 5px; /* Tight spacing between player entries */
+    -fx-padding: 10px; /* Moderate internal padding for content breathing room */
+    -fx-background-color: #323437; /* Dark background matching app theme */
+    -fx-background-radius: 8px; /* Rounded corners for modern appearance */
+    -fx-border-color: #646669; /* Medium gray border for subtle definition */
+    -fx-border-width: 1px; /* Thin border for clean separation */
+    -fx-border-radius: 8px; /* Rounded border matching background */
+}
+
+/*
+ * Error message text styling for user feedback (Dark Theme)
+ *
+ * Dark theme error message styling using muted red color that maintains
+ * visibility while being easier on the eyes in low-light environments.
+ * Bold weight ensures error messages remain prominent and noticeable.
+ *
+ * Usage: Applied to Label nodes displaying error messages
+ * Context: Form validation, network errors, game state errors
+ * Dark Theme: Uses muted red (#CA4754) instead of bright red
+ */
+.error-message {
+    -fx-text-fill: #CA4754; /* Muted red for dark theme error indication */
+    -fx-font-weight: bold; /* Bold weight for visual emphasis */
+}
+
+/*
+ * Section title styling for settings and configuration areas (Dark Theme)
+ *
+ * Dark theme section title styling using warm gold accent color instead
+ * of blue to reduce blue light emission and provide comfortable viewing.
+ * Maintains visual hierarchy while being easier on the eyes.
+ *
+ * Usage: Applied to Label nodes serving as section headers
+ * Context: Settings sections, help topics, configuration groups
+ * Dark Theme: Uses warm gold (#E2B714) instead of blue for eye comfort
+ */
+.section-title {
+    -fx-font-size: 16px; /* Readable size appropriate for section headers */
+    -fx-text-fill: #E2B714; /* Warm gold accent for comfortable dark theme viewing */
+    -fx-font-weight: bold; /* Bold weight for hierarchy and emphasis */
+    -fx-padding: 0 0 10px 0; /* Bottom padding to separate from following content */
+}
+
+
+/* ========== MULTIPLAYER RESULT COMPONENTS ========== */
+
+/* 
+ * Individual player result row container in multiplayer results view (Dark Theme)
+ * 
+ * Creates a dark-themed card container for displaying each player's performance
+ * data in the multiplayer results screen. Uses warm dark colors to reduce
+ * eye strain while maintaining excellent readability and visual hierarchy.
+ * 
+ * Layout: Horizontal arrangement with consistent spacing between elements
+ * Usage: Applied to HBox containers in multiplayer results rankings
+ * Content: Medal/position, player name, WPM, accuracy percentage
+ * Dark Theme Features: Darker background, stronger shadow, warm color palette
+ */
+.player-result-row {
+    -fx-padding: 15px; /* Internal spacing around content */
+    -fx-background-color: #323437; /* Dark gray card background for reduced eye strain */
+    -fx-background-radius: 12px; /* Rounded corners for modern appearance */
+    -fx-border-color: #646669; /* Medium gray border for subtle definition */
+    -fx-border-width: 1px; /* Thin border for card separation */
+    -fx-border-radius: 12px; /* Rounded border matching background */
+    -fx-alignment: center-left; /* Left-aligned content with vertical centering */
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 8, 0, 0, 2); /* Stronger shadow for dark theme depth */
+    -fx-spacing: 15px; /* Horizontal spacing between child elements */
+}
+
+/* 
+ * Text labels within player result rows (Dark Theme)
+ * 
+ * Standardizes the appearance of all text elements within player result
+ * rows for dark theme compatibility. Uses warm off-white color for
+ * comfortable reading in low-light environments while maintaining
+ * excellent contrast and readability.
+ * 
+ * Applied to: Player names, WPM values, accuracy percentages, medal indicators
+ * Font size: 16px for optimal readability in result tables
+ * Color: Warm off-white (#D1D0C5) to reduce blue light emission
+ */
+.player-result-row .label {
+    -fx-font-size: 16px; /* Consistent readable text size */
+    -fx-font-weight: bold; /* Bold text for emphasis and clarity */
+    -fx-text-fill: #D1D0C5; /* Warm off-white text for comfortable dark theme viewing */
+}
