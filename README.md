@@ -2,9 +2,12 @@
 
 A feature-rich JavaFX typing speed test application with multiplayer capabilities, comprehensive statistics tracking, and customizable themes.
 
+Video demo - https://www.facebook.com/arefinsowad/videos/2183812748803812
+
 <div align="center">
     <img src="src/main/resources/images/icon.png" alt="Typerr Logo" width="25%">
 </div>
+
 
 
 ## Features
@@ -41,7 +44,7 @@ A feature-rich JavaFX typing speed test application with multiplayer capabilitie
 
 ## About Documentations
 
-**This project has been extensively documented using an LLM. Please checkout the WITH-DOC branch for files with detailed comments and documentation.**
+**This project has been extensively documented using an LLM, please checkout the WITHOUT-DOC branch for files without any sort of comments or documentation.**
 
 ## Quick Start
 
@@ -74,6 +77,5 @@ Typerr/
 ├── docs/                           # Documentation
 └── pom.xml                         # Maven configuration
 ```
-
 
 P.S. Typer Logo image taken from Google
